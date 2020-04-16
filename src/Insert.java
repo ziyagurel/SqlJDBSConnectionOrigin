@@ -4,13 +4,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class insert {
+public class Insert {
     private static Connection connection = null;
     private static DbHelper helper = new DbHelper();
     private static ResultSet result; //
     private static ArrayList<Country> countriesList;
 
-    public void insertQuery() throws SQLException {
+    public static void insertQuery() throws SQLException {
         PreparedStatement statement = null; // İnsert Cümleciği...
         String sql = "insert into city (Name, CountryCode, District, Population) values (?,?,?,?)";
         try{
@@ -21,7 +21,7 @@ public class insert {
             statement.setString(3,"SAMSUN2");
             statement.setInt(4,1200000);
             int result = statement.executeUpdate();
-            System.out.println(result + "Kayit Eklendi...");
+            System.out.println(result + " - Kayit Eklendi...");
         } catch (SQLException e) {
             helper.showErrorMessage(e);
         }
